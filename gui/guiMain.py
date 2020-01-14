@@ -41,10 +41,7 @@ def startGUI():
     mainLayout.addLayout(makeActions(app))
 
     window.setLayout(mainLayout)
-    window.show()
-    print("1024  x  768")
-    print(window.width(), " x ", window.height())
-    print("", 1024 - window.width(), "\t", 768 - window.height())
+    window.showFullScreen()
     app.exec_()
 
 
@@ -73,7 +70,7 @@ def makeTitle():
 def makeNameArea():
     tabs = QTabWidget()
     tabs.setStyleSheet(
-        "QTabBar::tab {width: 150px; height:40px} QTabBar::scroller{width:50px;}")
+        "QTabBar::tab {width: 130px; height:40px} QTabBar::scroller{width:50px;}")
 
     for i in opts.timeclockOpts["teams"]:
         currentNames = []
@@ -243,9 +240,9 @@ def makeActions(app):
 
     actionsLayout.addWidget(signI, 0, 0, 3, 2)
     actionsLayout.addWidget(signO, 0, 2, 3, 2)
-    # actionsLayout.addWidget(more, 0, 4, 2, 1)
+    actionsLayout.addWidget(more, 0, 4, 2, 1)
     actionsLayout.addWidget(newUser, 2, 4)
-    # actionsLayout.addWidget(graph, 0, 5)
+    actionsLayout.addWidget(graph, 0, 5)
     actionsLayout.addWidget(update, 1, 5)
     actionsLayout.addWidget(quit, 2, 5)
     return actionsLayout

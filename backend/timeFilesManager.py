@@ -1,4 +1,5 @@
 import datetime
+import time
 import os
 
 import backend.processOptions as opts
@@ -68,7 +69,7 @@ def getHours(user):
         lines = userFile.readlines()[1:]
         
         # Auto-clockout (prevents users from getting time from forgetting to sign out)
-        autoClockoutTime = datetime.time.fromisoformat(opts.timeclockOpts["autoClockoutTime"])
+        autoClockoutTime = time.strptime(opts.timeclockOpts["autoClockoutTime"], "%H:%M:%S")
 
         try:
             lastIO = rapidjson.loads(lines[-1], datetime_mode=DM_ISO8601)
